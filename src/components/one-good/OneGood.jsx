@@ -14,7 +14,7 @@ import { useGoods } from '../../hooks/useSelectorState'
 
 const OneGood = () => {
   const { id } = useParams()
-  console.log('🚀 ~ id:', id)
+
   const { getIdGood, addItems, minusItems } = useActions()
   const { good = {} } = useGoods()
 
@@ -40,18 +40,20 @@ const OneGood = () => {
       borderRadius="5px"
       margin="10px"
     >
-      <Image
-        src={good.imageUrl}
-        alt=""
-        boxSize="200px"
-        objectFit="cover"
-        marginBottom="10px"
-      />
+      {good && good.imageUrl && (
+        <Image
+          src={good.imageUrl}
+          alt=""
+          boxSize="200px"
+          objectFit="cover"
+          marginBottom="10px"
+        />
+      )}
       <Heading as="h2" fontSize="18px" fontWeight="bold" marginBottom="5px">
-        {good.title}
+        {good && good.title}
       </Heading>
       <Text fontSize="16px" marginBottom="5px">
-        {good.price} ₴
+        {good && good.price} ₴
       </Text>
       <Box>
         <ButtonGroup spacing="2">
