@@ -35,46 +35,46 @@ const CardItem = ({ item }) => {
   }
 
   return (
-    <Link to={`${ROUTES.GOOD_ID}/${_id}`}>
-      <Card maxW="270px" margin={3} bg="gray.200">
-        <CardBody>
+    <Card maxW="270px" margin={3} bg="gray.200">
+      <CardBody>
+        <Link to={`${ROUTES.GOOD_ID}/${_id}`}>
           <Image src={imageUrl} alt={title} borderRadius="lg" />
-          <Stack mt="6" spacing="3">
-            <Heading size="md" mb="5">
-              {title.slice(0, 20)}
-            </Heading>
+        </Link>
+        <Stack mt="6" spacing="3">
+          <Heading size="md" mb="5">
+            {title.slice(0, 20)}
+          </Heading>
 
-            <Text color="blue.600" fontSize="2xl">
-              {price} ₴
-            </Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <Box display="flex" justifyContent="space-between">
-            <Box>
-              <ButtonGroup spacing="2">
-                <AiOutlinePlus
-                  onClick={handleAddCarts}
-                  size={30}
-                  className={styles.icon}
-                />
-                <MdRemove
-                  onClick={handleRemoveCarts}
-                  size={30}
-                  className={styles.icon}
-                />
-              </ButtonGroup>
-            </Box>
-            <Box ml="30px">
-              <Text>
-                В корзине:<Text as="b"> {getCartItem(items, _id)}</Text> шт.
-              </Text>
-            </Box>
+          <Text color="blue.600" fontSize="2xl">
+            {price} ₴
+          </Text>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter>
+        <Box display="flex" justifyContent="space-between">
+          <Box>
+            <ButtonGroup spacing="2">
+              <AiOutlinePlus
+                onClick={handleAddCarts}
+                size={30}
+                className={styles.icon}
+              />
+              <MdRemove
+                onClick={handleRemoveCarts}
+                size={30}
+                className={styles.icon}
+              />
+            </ButtonGroup>
           </Box>
-        </CardFooter>
-      </Card>
-    </Link>
+          <Box ml="30px">
+            <Text>
+              В корзине:<Text as="b"> {getCartItem(items, _id)}</Text> шт.
+            </Text>
+          </Box>
+        </Box>
+      </CardFooter>
+    </Card>
   )
 }
 export default CardItem
