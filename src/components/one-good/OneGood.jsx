@@ -7,8 +7,6 @@ import {
   Text
 } from '@chakra-ui/react'
 import { useEffect } from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { MdRemove } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
 
 import { useActions } from '../../hooks/useActions'
@@ -16,6 +14,7 @@ import { useGoods } from '../../hooks/useSelectorState'
 
 const OneGood = () => {
   const { id } = useParams()
+  console.log('🚀 ~ id:', id)
   const { getIdGood, addItems, minusItems } = useActions()
   const { good } = useGoods()
 
