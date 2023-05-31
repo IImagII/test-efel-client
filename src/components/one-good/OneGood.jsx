@@ -16,7 +16,7 @@ const OneGood = () => {
   const { id } = useParams()
   console.log('🚀 ~ id:', id)
   const { getIdGood, addItems, minusItems } = useActions()
-  const { good } = useGoods()
+  const { good = {} } = useGoods()
 
   useEffect(() => {
     getIdGood(id)
